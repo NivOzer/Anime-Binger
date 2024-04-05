@@ -4,12 +4,16 @@
 }
 body{
     display: flex;
+    background-color: #fdf6da;
+    width:550px;
+    height:150px;
+    justify-content: center;
 }
 .AnimeHeader > h1{
 font-family: "Quicksand", sans-serif;
 }
 .AnimeContainer{
-    width:100%;
+    width:500px;
     height:100px;
     display:flex;
     flex-direction: column;
