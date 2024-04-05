@@ -2,6 +2,12 @@ import "./AnimeStyles.css";
 import React, { useState } from "react";
 function Anime() {
   const [episodeNumber, setEpisodeNumber] = React.useState("");
+  const handleNumberChange = (event: any) => {
+    setEpisodeNumber(event.target.value);
+  };
+  const handlePlay = () => {
+    console.log(episodeNumber);
+  };
   return (
     <div>
       <div className="AnimeHeader">
@@ -13,11 +19,11 @@ function Anime() {
             type="text"
             placeholder="Episode Number"
             value={episodeNumber}
-            onChange={(event) => {
-              setEpisodeNumber(event.target.value);
-            }}
+            onChange={handleNumberChange}
           />
-          <button className="playEpisode animeButton">Play Episode</button>
+          <button className="playEpisode animeButton" onClick={handlePlay}>
+            Play Episode
+          </button>
         </div>
         <div className="nextEpisode">
           <button className="animeButton">Next Episode</button>
