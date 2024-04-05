@@ -4,7 +4,7 @@ function Anime() {
   return (
     <div>
       <div className="AnimeHeader">
-        <h1>Anime Binger</h1>
+        <h1>anime binger</h1>
       </div>
       <div className="AnimeContainer">
         <div className="episodeNumPlay">

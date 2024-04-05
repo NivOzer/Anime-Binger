@@ -1,11 +1,12 @@
+@import url('https://fonts.googleapis.com/css2?family=Edu+TAS+Beginner:wght@400..700&family=Quicksand:wght@300..700&display=swap');
 *{
     margin: 0;
 }
 body{
     display: flex;
 }
-.animeHeader{
-
+.AnimeHeader > h1{
+font-family: "Quicksand", sans-serif;
 }
 .AnimeContainer{
     width:100%;
