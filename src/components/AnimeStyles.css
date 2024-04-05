@@ -39,6 +39,7 @@ input{
     font-weight: bold;
     border: none;
     border-radius: 5px;
+    cursor: pointer;
 }
 .playEpisode{
     background-color: #F5CB1F;
