@@ -8,8 +8,8 @@ function Anime() {
           <input type="text" placeholder="Episode Number" />
           <button className="playEpisode">Play Episode</button>
         </div>
-        <div>
-          <button className="nextEpisode">Next Episode</button>
+        <div className="nextEpisode">
+          <button>Next Episode</button>
         </div>
       </div>
       <p>Last Episode Watched:</p>

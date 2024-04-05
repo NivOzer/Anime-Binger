@@ -1,15 +1,33 @@
 .AnimeContainer{
     width:40%;
     height:100px;
-    background-color:yellow;
-    flex-direction: column;
     display:flex;
+    flex-direction: column;
+    flex-grow: 1;
 }
-.episodeNumPlay{
+.episodeNumPlay,.nextEpisode{
     display: flex;
-    background-color: red;
+    flex-grow: 1;
 }
 button,input{
     width:100%;
-    flex:1;
+}
+input{
+    padding-left: 10px;
+    font-size: 24px;
+    background-color: #f7d650;
+    border: none;
+}
+.playEpisode,.nextEpisode{
+    color: #fff;
+    font-size: 24px;
+    font-weight: bold;
+    border: none;
+    border-radius: 5px;
+}
+.playEpisode{
+    background-color: #F5CB1F;
+}
+.nextEpisode {
+    background-color: #ad2e3c;
 }
