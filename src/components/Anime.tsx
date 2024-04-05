@@ -3,6 +3,9 @@ import React from "react";
 function Anime() {
   return (
     <div>
+      <div className="AnimeHeader">
+        <h1>Anime Binger</h1>
+      </div>
       <div className="AnimeContainer">
         <div className="episodeNumPlay">
           <input type="text" placeholder="Episode Number" />
@@ -12,7 +15,10 @@ function Anime() {
           <button className="animeButton">Next Episode</button>
         </div>
       </div>
-      <p>Last Episode Watched:</p>
+      <p>
+        Last Episode Watched:
+        <span className="lastWatched"></span>
+      </p>
     </div>
   );
 }

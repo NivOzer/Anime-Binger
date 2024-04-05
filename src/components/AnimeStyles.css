@@ -1,5 +1,14 @@
+*{
+    margin: 0;
+}
+body{
+    display: flex;
+}
+.animeHeader{
+
+}
 .AnimeContainer{
-    width:40%;
+    width:100%;
     height:100px;
     display:flex;
     flex-direction: column;
@@ -30,4 +39,8 @@ input{
 }
 .nextEpisode > button{
     background-color: #ad2e3c;
+}
+p{
+    padding: 2%;
+    display: flex;
 }
