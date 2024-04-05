@@ -18,7 +18,7 @@ input{
     background-color: #f7d650;
     border: none;
 }
-.playEpisode,.nextEpisode{
+.animeButton{
     color: #fff;
     font-size: 24px;
     font-weight: bold;
@@ -28,6 +28,6 @@ input{
 .playEpisode{
     background-color: #F5CB1F;
 }
-.nextEpisode {
+.nextEpisode > button{
     background-color: #ad2e3c;
 }
