@@ -1,0 +1,15 @@
+.AnimeContainer{
+    width:40%;
+    height:100px;
+    background-color:yellow;
+    flex-direction: column;
+    display:flex;
+}
+.episodeNumPlay{
+    display: flex;
+    background-color: red;
+}
+button,input{
+    width:100%;
+    flex:1;
+}

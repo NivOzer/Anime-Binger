@@ -1,7 +1,18 @@
+import "./AnimeStyles.css";
+import React from "react";
 function Anime() {
   return (
     <div>
-      <div>test</div>
+      <div className="AnimeContainer">
+        <div className="episodeNumPlay">
+          <input type="text" placeholder="Episode Number" />
+          <button className="playEpisode">Play Episode</button>
+        </div>
+        <div>
+          <button className="nextEpisode">Next Episode</button>
+        </div>
+      </div>
+      <p>Last Episode Watched:</p>
     </div>
   );
 }
