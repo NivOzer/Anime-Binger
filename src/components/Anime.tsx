@@ -1,12 +1,13 @@
 import "./AnimeStyles.css";
 import React, { useState } from "react";
+import { fillerChecker, playEpisodeFromInput, playEpisode } from "./OnePiece";
 function Anime() {
   const [episodeNumber, setEpisodeNumber] = React.useState("");
   const handleNumberChange = (event: any) => {
     setEpisodeNumber(event.target.value);
   };
-  const handlePlay = () => {
-    console.log(episodeNumber);
+  const handlePlay = (episodeNumber: number) => {
+    playEpisodeFromInput(episodeNumber);
   };
   return (
     <div>
@@ -21,7 +22,10 @@ function Anime() {
             value={episodeNumber}
             onChange={handleNumberChange}
           />
-          <button className="playEpisode animeButton" onClick={handlePlay}>
+          <button
+            className="playEpisode animeButton"
+            onClick={() => handlePlay(parseInt(episodeNumber))}
+          >
             Play Episode
           </button>
         </div>

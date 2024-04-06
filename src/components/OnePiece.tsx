@@ -1,4 +1,4 @@
-function fillerChecker(x: number) {
+export function fillerChecker(x: number) {
   if (54 <= x && x <= 60) {
     return 61;
   } else if (98 <= x && x <= 99) {
@@ -53,8 +53,7 @@ function fillerChecker(x: number) {
     return x;
   }
 }
-
-function playEpisodeFromInput(episodeNumber: number) {
+export function playEpisodeFromInput(episodeNumber: number) {
   // Check if the input value is a valid number
   if (!isNaN(episodeNumber) && episodeNumber > 0) {
     // Call the playEpisode function with the episode number
@@ -63,10 +62,7 @@ function playEpisodeFromInput(episodeNumber: number) {
     playEpisode(x);
   }
 }
-
-function playEpisode(episodeNumber: number) {
+export function playEpisode(episodeNumber: number) {
   const episodeURL = `https://animeisrael.website/watch/fulllink/op/fulllinkop-${episodeNumber}.php`;
   window.open(episodeURL);
 }
-
-export default fillerChecker;
