@@ -1,6 +1,7 @@
 import "./AnimeStyles.css";
 import React, { useState } from "react";
 import { fillerChecker, playEpisodeFromInput, playEpisode } from "./OnePiece";
+import { stringify } from "querystring";
 function Anime() {
   const [episodeNumber, setEpisodeNumber] = React.useState("");
   const handleNumberChange = (event: any) => {
@@ -30,7 +31,15 @@ function Anime() {
           </button>
         </div>
         <div className="nextEpisode">
-          <button className="animeButton">Next Episode</button>
+          <button
+            className="animeButton"
+            onClick={() => {
+              handlePlay(parseInt(episodeNumber) + 1);
+              setEpisodeNumber((parseInt(episodeNumber) + 1).toString());
+            }}
+          >
+            Next Episode
+          </button>
         </div>
       </div>
       <p>
