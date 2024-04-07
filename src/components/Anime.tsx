@@ -34,8 +34,10 @@ function Anime() {
           <button
             className="animeButton"
             onClick={() => {
-              handlePlay(parseInt(episodeNumber) + 1);
-              setEpisodeNumber((parseInt(episodeNumber) + 1).toString());
+              if (episodeNumber != "") {
+                handlePlay(parseInt(episodeNumber) + 1);
+                setEpisodeNumber((parseInt(episodeNumber) + 1).toString());
+              }
             }}
           >
             Next Episode
