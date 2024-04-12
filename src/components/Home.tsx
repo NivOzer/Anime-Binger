@@ -1,5 +1,6 @@
 import React from "react";
 import Banner from "./Banner";
+import "../styles/HomeStyles.css";
 import onePunchManLogo from "../banners/one-punch-man.jpg";
 import onePieceLogo from "../banners/one-piece.png";
 import attackOnTitanLogo from "../banners/attack-on-titan.jpg";
@@ -7,7 +8,9 @@ import attackOnTitanLogo from "../banners/attack-on-titan.jpg";
 function Home() {
   return (
     <div>
-      <Banner bannerImage={attackOnTitanLogo} />
+      <Banner bannerImage={onePieceLogo} bannerText="One Piece" />
+      <Banner bannerImage={attackOnTitanLogo} bannerText="Attack On Titan" />
+      <Banner bannerImage={onePunchManLogo} bannerText="One Punch Man" />
     </div>
   );
 }
