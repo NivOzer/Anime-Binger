@@ -1,8 +1,7 @@
-*{margin: 0;
-}
+*{margin:0;padding: 0;}
 .showsContainer{
-
     display: flex;
     gap:5px;
     padding: 5px;
+    background-color: red;
 }
