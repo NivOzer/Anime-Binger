@@ -1,6 +1,10 @@
 import "../styles/AnimeStyles.css";
 import React, { useState } from "react";
-import { fillerChecker, playEpisodeFromInput, playEpisode } from "./OnePiece";
+import {
+  fillerChecker,
+  playEpisodeFromInput,
+  playEpisode,
+} from "../ShowsInterface/OnePiece";
 import { stringify } from "querystring";
 import { returnDownBack } from "ionicons/icons";
 import { IonIcon } from "@ionic/react";
