@@ -2,8 +2,8 @@ import "../styles/AnimeStyles.css";
 import React, { useState } from "react";
 import { fillerChecker, playEpisodeFromInput, playEpisode } from "./OnePiece";
 import { stringify } from "querystring";
-import { IonIcon } from "@ionic/react";
 import { returnDownBack } from "ionicons/icons";
+import { IonIcon } from "@ionic/react";
 function Anime() {
   const [episodeNumber, setEpisodeNumber] = React.useState("");
   const handleNumberChange = (event: any) => {
