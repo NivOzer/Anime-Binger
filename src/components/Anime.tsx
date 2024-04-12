@@ -4,6 +4,7 @@ import { fillerChecker, playEpisodeFromInput, playEpisode } from "./OnePiece";
 import { stringify } from "querystring";
 import { returnDownBack } from "ionicons/icons";
 import { IonIcon } from "@ionic/react";
+import { Link } from "react-router-dom";
 function Anime() {
   const [episodeNumber, setEpisodeNumber] = React.useState("");
   const handleNumberChange = (event: any) => {
@@ -50,7 +51,9 @@ function Anime() {
         Last Episode Watched:&nbsp;
         <span className="lastWatched">{episodeNumber}</span>
       </p>
-      <IonIcon icon={returnDownBack} />
+      <Link to="/">
+        <IonIcon icon={returnDownBack} size="large" />
+      </Link>
     </div>
   );
 }
