@@ -1,4 +1,4 @@
-import "./AnimeStyles.css";
+import "../styles/AnimeStyles.css";
 import React, { useState } from "react";
 import { fillerChecker, playEpisodeFromInput, playEpisode } from "./OnePiece";
 import { stringify } from "querystring";
