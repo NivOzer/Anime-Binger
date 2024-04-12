@@ -5,9 +5,6 @@
 body{
     display: flex;
     background-color: #fdf6da;
-    width:510px;
-    height:110px;
-
 }
 .AnimeHeader > h1{
     font-size: 35px;
