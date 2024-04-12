@@ -7,7 +7,7 @@ import attackOnTitanLogo from "../banners/attack-on-titan.jpg";
 
 function Home() {
   return (
-    <div>
+    <div className="showsContainer">
       <Banner bannerImage={onePieceLogo} bannerText="One Piece" />
       <Banner bannerImage={attackOnTitanLogo} bannerText="Attack On Titan" />
       <Banner bannerImage={onePunchManLogo} bannerText="One Punch Man" />
