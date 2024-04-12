@@ -3,7 +3,7 @@ import Banner from "./Banner";
 function Home() {
   return (
     <div>
-      <Banner />
+      <Banner imagePath="attack-on-titan.png" />
     </div>
   );
 }
