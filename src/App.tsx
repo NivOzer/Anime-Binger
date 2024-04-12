@@ -16,7 +16,7 @@ function App() {
       <Router>
         <Routes>
           <Route path="/" element={<Home />} />
-          <Route path="/anime" element={<Anime />} />
+          <Route path="/anime" element={<Anime animeName="" />} />
         </Routes>
       </Router>
     </div>

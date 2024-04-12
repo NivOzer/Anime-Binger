@@ -9,7 +9,12 @@ import { stringify } from "querystring";
 import { returnDownBack } from "ionicons/icons";
 import { IonIcon } from "@ionic/react";
 import { Link } from "react-router-dom";
-function Anime() {
+
+interface Props {
+  animeName: string;
+}
+
+function Anime({ animeName }: Props) {
   const [episodeNumber, setEpisodeNumber] = React.useState("");
   const handleNumberChange = (event: any) => {
     setEpisodeNumber(event.target.value);
