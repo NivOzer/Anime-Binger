@@ -6,7 +6,7 @@ import Anime from "./components/Anime";
 function App() {
   return (
     <div className="App">
-      <Anime />
+      <Home />
     </div>
   );
 }
