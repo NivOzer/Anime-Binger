@@ -1,10 +1,6 @@
 import "../styles/AnimeStyles.css";
 import React, { useState } from "react";
-import {
-  fillerChecker,
-  playEpisodeFromInput,
-  playEpisode,
-} from "../ShowsInterface/OnePiece";
+import * as OnePiece from "../ShowsInterface/OnePiece";
 import { stringify } from "querystring";
 import { returnDownBack } from "ionicons/icons";
 import { IonIcon } from "@ionic/react";
@@ -20,12 +16,34 @@ function Anime() {
   const formattedAnimeName = animeName?.replace(/([A-Z])/g, " $1").trim();
 
   const [episodeNumber, setEpisodeNumber] = React.useState("");
+  const [seasonNumber, setSeasonNumber] = React.useState("");
 
-  const seasonal: boolean = false;
+  let seasonal: boolean = false;
 
-  const handleNumberChange = (event: any) => {
+  const handleEpisodeNumberChange = (event: any) => {
     setEpisodeNumber(event.target.value);
   };
+  const handleSeasonNumberChange = (event: any) => {
+    setSeasonNumber(event.target.value);
+  };
+
+  let playEpisodeFromInput: (episodeNumber: number) => void;
+
+  switch (animeName) {
+    case "OnePiece":
+      playEpisodeFromInput = OnePiece.playEpisodeFromInput;
+      break;
+    case "AttackOnTitan":
+      seasonal = true;
+      break;
+    case "OnePunchMan":
+      seasonal = true;
+      break;
+    default:
+      playEpisodeFromInput = () => {};
+      break;
+  }
+
   const handlePlay = (episodeNumber: number) => {
     switch (animeName) {
       case "OnePiece":
@@ -36,6 +54,7 @@ function Anime() {
         break;
     }
   };
+
   return (
     <div>
       <div className="AnimeHeader">
@@ -47,15 +66,15 @@ function Anime() {
             type="text"
             placeholder="Episode Number"
             value={episodeNumber}
-            onChange={handleNumberChange}
+            onChange={handleEpisodeNumberChange}
           />
 
           {seasonal && (
             <input
               type="text"
-              placeholder="Episode Number"
-              value={episodeNumber}
-              onChange={handleNumberChange}
+              placeholder="Season Number"
+              value={seasonNumber}
+              onChange={handleSeasonNumberChange}
             />
           )}
 
