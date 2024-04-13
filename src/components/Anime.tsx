@@ -17,8 +17,7 @@ import { Link, useLocation } from "react-router-dom";
 function Anime() {
   const locationData = useLocation();
   const animeName = new URLSearchParams(locationData.search).get("animeName");
-
-  console.log(animeName);
+  const formattedAnimeName = animeName?.replace(/([A-Z])/g, " $1").trim();
 
   const [episodeNumber, setEpisodeNumber] = React.useState("");
   const handleNumberChange = (event: any) => {
@@ -30,7 +29,7 @@ function Anime() {
   return (
     <div>
       <div className="AnimeHeader">
-        <h1>anime binger</h1>
+        <h1>{formattedAnimeName}</h1>
       </div>
       <div className="AnimeContainer">
         <div className="episodeNumPlay">
