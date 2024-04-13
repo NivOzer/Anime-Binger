@@ -20,11 +20,21 @@ function Anime() {
   const formattedAnimeName = animeName?.replace(/([A-Z])/g, " $1").trim();
 
   const [episodeNumber, setEpisodeNumber] = React.useState("");
+
+  const seasonal: boolean = false;
+
   const handleNumberChange = (event: any) => {
     setEpisodeNumber(event.target.value);
   };
   const handlePlay = (episodeNumber: number) => {
-    playEpisodeFromInput(episodeNumber);
+    switch (animeName) {
+      case "OnePiece":
+        playEpisodeFromInput(episodeNumber);
+        break;
+
+      default:
+        break;
+    }
   };
   return (
     <div>
@@ -39,6 +49,16 @@ function Anime() {
             value={episodeNumber}
             onChange={handleNumberChange}
           />
+
+          {seasonal && (
+            <input
+              type="text"
+              placeholder="Episode Number"
+              value={episodeNumber}
+              onChange={handleNumberChange}
+            />
+          )}
+
           <button
             className="playEpisode animeButton"
             onClick={() => handlePlay(parseInt(episodeNumber))}
