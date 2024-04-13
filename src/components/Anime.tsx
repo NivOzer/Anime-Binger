@@ -8,13 +8,18 @@ import {
 import { stringify } from "querystring";
 import { returnDownBack } from "ionicons/icons";
 import { IonIcon } from "@ionic/react";
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 
-interface Props {
-  animeName: string;
-}
+// interface Props {
+//   animeName: string;
+// }
 
-function Anime({ animeName }: Props) {
+function Anime() {
+  const locationData = useLocation();
+  const animeName = new URLSearchParams(locationData.search).get("animeName");
+
+  console.log(animeName);
+
   const [episodeNumber, setEpisodeNumber] = React.useState("");
   const handleNumberChange = (event: any) => {
     setEpisodeNumber(event.target.value);

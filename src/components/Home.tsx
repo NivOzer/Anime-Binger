@@ -9,11 +9,15 @@ import Anime from "./Anime";
 function Home() {
   return (
     <div className="showsContainer">
-      <Link to="/anime">
+      <Link to="/anime?animeName=OnePiece">
         <Banner bannerImage={onePieceLogo} bannerText="One Piece" />
       </Link>
-      <Banner bannerImage={attackOnTitanLogo} bannerText="Attack On Titan" />
-      <Banner bannerImage={onePunchManLogo} bannerText="One Punch Man" />
+      <Link to="/anime?animeName=AttackOnTitan">
+        <Banner bannerImage={attackOnTitanLogo} bannerText="Attack On Titan" />
+      </Link>
+      <Link to="/anime?animeName=OnePunchMan">
+        <Banner bannerImage={onePunchManLogo} bannerText="One Punch Man" />
+      </Link>
     </div>
   );
 }
