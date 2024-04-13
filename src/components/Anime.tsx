@@ -1,6 +1,7 @@
 import "../styles/AnimeStyles.css";
 import React, { useState } from "react";
 import * as OnePiece from "../ShowsInterface/OnePiece";
+import * as AttackOnTitan from "../ShowsInterface/AttackOnTitan";
 import { stringify } from "querystring";
 import { returnDownBack } from "ionicons/icons";
 import { IonIcon } from "@ionic/react";
@@ -34,6 +35,7 @@ function Anime() {
       playEpisodeFromInput = OnePiece.playEpisodeFromInput;
       break;
     case "AttackOnTitan":
+      playEpisodeFromInput = AttackOnTitan.playEpisodeFromInput;
       seasonal = true;
       break;
     case "OnePunchMan":
@@ -45,14 +47,7 @@ function Anime() {
   }
 
   const handlePlay = (episodeNumber: number) => {
-    switch (animeName) {
-      case "OnePiece":
-        playEpisodeFromInput(episodeNumber);
-        break;
-
-      default:
-        break;
-    }
+    playEpisodeFromInput(episodeNumber);
   };
 
   return (

@@ -65,6 +65,7 @@ export function playEpisodeFromInput(
     playEpisode(x);
   }
 }
+
 export function playEpisode(episodeNumber: number) {
   const episodeURL = `https://animeisrael.website/watch/fulllink/op/fulllinkop-${episodeNumber}.php`;
   window.open(episodeURL);
