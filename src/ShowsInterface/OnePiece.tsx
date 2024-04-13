@@ -53,7 +53,10 @@ export function fillerChecker(x: number) {
     return x;
   }
 }
-export function playEpisodeFromInput(episodeNumber: number) {
+export function playEpisodeFromInput(
+  episodeNumber: number,
+  seasonNumber?: number
+) {
   // Check if the input value is a valid number
   if (!isNaN(episodeNumber) && episodeNumber > 0) {
     // Call the playEpisode function with the episode number
