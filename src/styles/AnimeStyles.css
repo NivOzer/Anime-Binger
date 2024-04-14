@@ -32,7 +32,7 @@ button,input{
 input{
     padding-left: 10px;
     font-size: 24px;
-    background-color: #f7d650;
+    /* background-color: #f7d650; */
     border: none;
 }
 .animeButton{
@@ -44,10 +44,10 @@ input{
     cursor: pointer;
 }
 .playEpisode{
-    background-color: #F5CB1F;
+    /* background-color: #F5CB1F; */
 }
 .nextEpisode > button{
-    background-color: #ad2e3c;
+    /* background-color: #ad2e3c; */
 }
 p{
     padding-left: 2%;
