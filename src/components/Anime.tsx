@@ -35,22 +35,25 @@ function Anime() {
   ) => void;
 
   const imageElement = new Image();
-  let episodeNumberColor = "";
-  let playEpisodeColor = "";
-  let nextEpisodeColor = "";
+  const [episodeNumberColor, setEpisodeNumberColor] = React.useState("");
+  const [playEpisodeColor, setPlayEpisodeColor] = React.useState("");
+  const [nextEpisodeColor, setNextEpisodeColor] = React.useState("");
+
   // Once the image is loaded, extract the prominent colors
-  imageElement.onload = () => {
-    prominent(imageElement).then((colors) => {
-      // Process the extracted colors here
-      //Extracting the colors from colors array of triplets
-      episodeNumberColor = `rgb(${colors[0].toString()})`;
-      playEpisodeColor = `rgb(${colors[1].toString()})`;
-      nextEpisodeColor = `rgb(${colors[2].toString()})`;
-      alert(nextEpisodeColor);
-      alert(playEpisodeColor);
-      alert(episodeNumberColor);
-    });
-  };
+  useEffect(() => {
+    // Once the image is loaded, extract the prominent colors
+    imageElement.onload = () => {
+      prominent(imageElement).then((colors) => {
+        // Process the extracted colors here
+        // Extracting the colors from colors array of triplets
+        setEpisodeNumberColor(`rgb(${colors[0].toString()})`);
+        setPlayEpisodeColor(`rgb(${colors[1].toString()})`);
+        setNextEpisodeColor(`rgb(${colors[2].toString()})`);
+      });
+    };
+  }, []);
+
+  alert(episodeNumberColor);
 
   switch (animeName) {
     case "OnePiece":
