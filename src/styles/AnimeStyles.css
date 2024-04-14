@@ -1,14 +1,17 @@
-@import url('https://fonts.googleapis.com/css2?family=Edu+TAS+Beginner:wght@400..700&family=Quicksand:wght@300..700&display=swap');
+@import url('https://fonts.cdnfonts.com/css/the-last-shuriken');
 *{
     margin: 0;
 }
 body{
     display: flex;
     background-color: #fdf6da;
+
 }
 .AnimeHeader > h1{
     font-size: 35px;
-font-family: "Quicksand", sans-serif;
+    font-weight: 100;
+    padding-top: 2%;
+font-family: 'The Last Shuriken', sans-serif;
 }
 .AnimeContainer{
     width:500px;
@@ -16,6 +19,7 @@ font-family: "Quicksand", sans-serif;
     display:flex;
     flex-direction: column;
     flex-grow: 1;
+    padding:0 2%;
 }
 .episodeNumPlay,.nextEpisode{
     display: flex;
@@ -45,10 +49,10 @@ input{
     background-color: #ad2e3c;
 }
 p{
-    padding-top: 2px;
+    padding:2% 2%;
     font-size: 18px;
     display: flex;
 }
 .backButton{
-    padding: 3px;
+    padding-bottom: 2%;
 }
