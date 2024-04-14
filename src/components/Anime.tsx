@@ -57,7 +57,7 @@ function Anime() {
   };
 
   return (
-    <div>
+    <div className="Anime">
       <div className="AnimeHeader">
         <h1>{formattedAnimeName}</h1>
       </div>
