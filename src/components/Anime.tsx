@@ -53,8 +53,6 @@ function Anime() {
     };
   }, []);
 
-  alert(episodeNumberColor);
-
   switch (animeName) {
     case "OnePiece":
       playEpisodeFromInput = OnePiece.playEpisodeFromInput;
@@ -90,6 +88,7 @@ function Anime() {
       <div className="AnimeContainer">
         <div className="episodeNumPlay">
           <input
+            style={{ backgroundColor: episodeNumberColor }}
             type="text"
             placeholder="Episode No."
             value={episodeNumber}
@@ -98,6 +97,7 @@ function Anime() {
 
           {seasonal && (
             <input
+              style={{ backgroundColor: episodeNumberColor }}
               type="text"
               placeholder="Season No."
               value={seasonNumber}
@@ -107,6 +107,7 @@ function Anime() {
 
           <button
             className="playEpisode animeButton"
+            style={{ backgroundColor: playEpisodeColor }}
             onClick={() =>
               handlePlay(parseInt(episodeNumber), parseInt(seasonNumber))
             }
@@ -117,6 +118,7 @@ function Anime() {
         <div className="nextEpisode">
           <button
             className="animeButton"
+            style={{ backgroundColor: nextEpisodeColor }}
             onClick={() => {
               if (episodeNumber != "") {
                 handlePlay(parseInt(episodeNumber) + 1, parseInt(seasonNumber));
