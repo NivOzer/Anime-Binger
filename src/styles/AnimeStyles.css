@@ -46,7 +46,7 @@ input{
 }
 p{
     padding-top: 2px;
-
+    font-size: 18px;
     display: flex;
 }
 .backButton{
