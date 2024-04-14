@@ -28,7 +28,10 @@ function Anime() {
     setSeasonNumber(event.target.value);
   };
 
-  let playEpisodeFromInput: (episodeNumber: number) => void;
+  let playEpisodeFromInput: (
+    episodeNumber: number,
+    seasonNumber?: number
+  ) => void;
 
   switch (animeName) {
     case "OnePiece":
@@ -42,12 +45,15 @@ function Anime() {
       seasonal = true;
       break;
     default:
-      playEpisodeFromInput = () => {};
+      playEpisodeFromInput = (
+        episodeNumber: number,
+        seasonNumber?: number
+      ) => {};
       break;
   }
 
-  const handlePlay = (episodeNumber: number) => {
-    playEpisodeFromInput(episodeNumber);
+  const handlePlay = (episodeNumber: number, seasonNumber?: number) => {
+    playEpisodeFromInput(episodeNumber, seasonNumber);
   };
 
   return (
@@ -75,7 +81,9 @@ function Anime() {
 
           <button
             className="playEpisode animeButton"
-            onClick={() => handlePlay(parseInt(episodeNumber))}
+            onClick={() =>
+              handlePlay(parseInt(episodeNumber), parseInt(seasonNumber))
+            }
           >
             Play Episode
           </button>
@@ -85,7 +93,7 @@ function Anime() {
             className="animeButton"
             onClick={() => {
               if (episodeNumber != "") {
-                handlePlay(parseInt(episodeNumber) + 1);
+                handlePlay(parseInt(episodeNumber) + 1, parseInt(seasonNumber));
                 setEpisodeNumber((parseInt(episodeNumber) + 1).toString());
               }
             }}
