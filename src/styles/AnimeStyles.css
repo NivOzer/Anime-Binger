@@ -45,6 +45,10 @@ input{
     background-color: #ad2e3c;
 }
 p{
-    padding: 2%;
+    padding-top: 2px;
+
     display: flex;
+}
+.backButton{
+    padding: 3px;
 }

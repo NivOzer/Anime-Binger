@@ -107,7 +107,11 @@ function Anime() {
         <span className="lastWatched">{episodeNumber}</span>
       </p>
       <Link to="/" style={{ color: "black" }}>
-        <IonIcon icon={returnDownBack} style={{ fontSize: "30px" }} />
+        <IonIcon
+          className="backButton"
+          icon={returnDownBack}
+          style={{ fontSize: "30px" }}
+        />
       </Link>
     </div>
   );
