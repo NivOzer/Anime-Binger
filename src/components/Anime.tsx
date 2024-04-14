@@ -65,8 +65,10 @@ function Anime() {
   // Once the image is loaded, extract the prominent colors
   imageElement.onload = () => {
     prominent(imageElement).then((colors) => {
-      // Process the extracted colors here
-      return colors;
+      //Extracting the colors from colors array of triplets
+      const episodeSeasonColor = colors.slice(0, 3);
+      const playColor = colors.slice(3, 6);
+      const nextEpisodeColor = colors.slice(6);
     });
   };
 
