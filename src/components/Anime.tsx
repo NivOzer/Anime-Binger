@@ -34,11 +34,17 @@ function Anime() {
     seasonNumber?: number
   ) => void;
 
-  const imageElement = new Image();
   const [episodeNumberColor, setEpisodeNumberColor] = React.useState("");
   const [playEpisodeColor, setPlayEpisodeColor] = React.useState("");
   const [nextEpisodeColor, setNextEpisodeColor] = React.useState("");
+  const [episodeNumberButtonColor, setEpisodeNumberButtonColor] =
+    React.useState("");
+  const [playEpisodeButtonColor, setPlayEpisodeButtonColor] =
+    React.useState("");
+  const [nextEpisodeButtonColor, setNextEpisodeButtonColor] =
+    React.useState("");
 
+  const imageElement = new Image();
   // Once the image is loaded, extract the prominent colors
   useEffect(() => {
     // Once the image is loaded, extract the prominent colors
@@ -88,7 +94,9 @@ function Anime() {
       <div className="AnimeContainer">
         <div className="episodeNumPlay">
           <input
-            style={{ backgroundColor: episodeNumberColor }}
+            style={{
+              backgroundColor: episodeNumberColor,
+            }}
             type="text"
             placeholder="Episode"
             value={episodeNumber}
