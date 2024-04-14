@@ -38,11 +38,11 @@ function Anime() {
   const [playEpisodeColor, setPlayEpisodeColor] = React.useState("");
   const [nextEpisodeColor, setNextEpisodeColor] = React.useState("");
   const [episodeNumberButtonColor, setEpisodeNumberButtonColor] =
-    React.useState("");
+    React.useState("white");
   const [playEpisodeButtonColor, setPlayEpisodeButtonColor] =
-    React.useState("");
+    React.useState("white");
   const [nextEpisodeButtonColor, setNextEpisodeButtonColor] =
-    React.useState("");
+    React.useState("white");
 
   const imageElement = new Image();
   // Once the image is loaded, extract the prominent colors
@@ -58,6 +58,31 @@ function Anime() {
       });
     };
   }, []);
+
+  useEffect(() => {
+    const color2 = calculateBrightness(nextEpisodeColor);
+    if (color2 !== undefined && color2 > 128) {
+      setNextEpisodeButtonColor("black");
+    }
+    const color1 = calculateBrightness(playEpisodeColor);
+    if (color1 !== undefined && color1 > 128) {
+      setNextEpisodeButtonColor("black");
+    }
+    const color0 = calculateBrightness(episodeNumberColor);
+    if (color0 !== undefined && color0 > 128) {
+      setNextEpisodeButtonColor("black");
+    }
+  }, [nextEpisodeColor, playEpisodeColor, episodeNumberColor]);
+
+  function calculateBrightness(colorString: string) {
+    const matchResult = colorString.match(/\d+/g);
+    if (matchResult) {
+      const rgbValues = matchResult.map(Number); // Extract RGB values as numbers
+      const brightness =
+        0.2126 * rgbValues[0] + 0.7152 * rgbValues[1] + 0.0722 * rgbValues[2]; // Calculate brightness
+      return brightness;
+    }
+  }
 
   switch (animeName) {
     case "OnePiece":
@@ -96,17 +121,24 @@ function Anime() {
           <input
             style={{
               backgroundColor: episodeNumberColor,
+              color: episodeNumberButtonColor,
             }}
             type="text"
             placeholder="Episode"
             value={episodeNumber}
             onChange={handleEpisodeNumberChange}
           />
-
+          <style>
+            {` 
+                    ::placeholder { 
+                        color: ${episodeNumberButtonColor}; 
+                    }`}
+          </style>
           {seasonal && (
             <input
               style={{
                 backgroundColor: episodeNumberColor,
+                color: episodeNumberButtonColor,
                 width: "70%",
               }}
               type="text"
@@ -115,10 +147,12 @@ function Anime() {
               onChange={handleSeasonNumberChange}
             />
           )}
-
           <button
             className="playEpisode animeButton"
-            style={{ backgroundColor: playEpisodeColor }}
+            style={{
+              backgroundColor: playEpisodeColor,
+              color: playEpisodeButtonColor,
+            }}
             onClick={() =>
               handlePlay(parseInt(episodeNumber), parseInt(seasonNumber))
             }
@@ -129,7 +163,10 @@ function Anime() {
         <div className="nextEpisode">
           <button
             className="animeButton"
-            style={{ backgroundColor: nextEpisodeColor }}
+            style={{
+              backgroundColor: nextEpisodeColor,
+              color: nextEpisodeButtonColor,
+            }}
             onClick={() => {
               if (episodeNumber != "") {
                 handlePlay(parseInt(episodeNumber) + 1, parseInt(seasonNumber));
