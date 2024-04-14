@@ -2,6 +2,7 @@ import "../styles/AnimeStyles.css";
 import React, { useState } from "react";
 import * as OnePiece from "../ShowsInterface/OnePiece";
 import * as AttackOnTitan from "../ShowsInterface/AttackOnTitan";
+import * as OnePunchMan from "../ShowsInterface/OnePunchMan";
 import { stringify } from "querystring";
 import { returnDownBack } from "ionicons/icons";
 import { IonIcon } from "@ionic/react";
@@ -42,6 +43,7 @@ function Anime() {
       seasonal = true;
       break;
     case "OnePunchMan":
+      playEpisodeFromInput = OnePunchMan.playEpisodeFromInput;
       seasonal = true;
       break;
     default:
