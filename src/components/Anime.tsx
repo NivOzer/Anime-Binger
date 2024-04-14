@@ -90,16 +90,19 @@ function Anime() {
           <input
             style={{ backgroundColor: episodeNumberColor }}
             type="text"
-            placeholder="Episode No."
+            placeholder="Episode"
             value={episodeNumber}
             onChange={handleEpisodeNumberChange}
           />
 
           {seasonal && (
             <input
-              style={{ backgroundColor: episodeNumberColor }}
+              style={{
+                backgroundColor: episodeNumberColor,
+                width: "70%",
+              }}
               type="text"
-              placeholder="Season No."
+              placeholder="Season"
               value={seasonNumber}
               onChange={handleSeasonNumberChange}
             />
