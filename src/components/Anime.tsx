@@ -1,5 +1,5 @@
 import "../styles/AnimeStyles.css";
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import * as OnePiece from "../ShowsInterface/OnePiece";
 import * as AttackOnTitan from "../ShowsInterface/AttackOnTitan";
 import * as OnePunchMan from "../ShowsInterface/OnePunchMan";
@@ -35,14 +35,20 @@ function Anime() {
   ) => void;
 
   const imageElement = new Image();
+  let episodeNumberColor = "";
+  let playEpisodeColor = "";
   let nextEpisodeColor = "";
   // Once the image is loaded, extract the prominent colors
   imageElement.onload = () => {
     prominent(imageElement).then((colors) => {
       // Process the extracted colors here
       //Extracting the colors from colors array of triplets
-      nextEpisodeColor = String(colors[2]);
+      episodeNumberColor = `rgb(${colors[0].toString()})`;
+      playEpisodeColor = `rgb(${colors[1].toString()})`;
+      nextEpisodeColor = `rgb(${colors[2].toString()})`;
       alert(nextEpisodeColor);
+      alert(playEpisodeColor);
+      alert(episodeNumberColor);
     });
   };
 
