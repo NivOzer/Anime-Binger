@@ -65,7 +65,7 @@ function Anime() {
         <div className="episodeNumPlay">
           <input
             type="text"
-            placeholder="Episode Number"
+            placeholder="Episode No."
             value={episodeNumber}
             onChange={handleEpisodeNumberChange}
           />
@@ -73,7 +73,7 @@ function Anime() {
           {seasonal && (
             <input
               type="text"
-              placeholder="Season Number"
+              placeholder="Season No."
               value={seasonNumber}
               onChange={handleSeasonNumberChange}
             />
