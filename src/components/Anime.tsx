@@ -11,9 +11,6 @@ import { average, prominent } from "color.js";
 import onePunchManLogo from "../banners/one-punch-man.jpg";
 import onePieceLogo from "../banners/one-piece.png";
 import attackOnTitanLogo from "../banners/attack-on-titan.jpg";
-// interface Props {
-//   animeName: string;
-// }
 
 function Anime() {
   const locationData = useLocation();
@@ -38,6 +35,16 @@ function Anime() {
   ) => void;
 
   const imageElement = new Image();
+  let nextEpisodeColor = "";
+  // Once the image is loaded, extract the prominent colors
+  imageElement.onload = () => {
+    prominent(imageElement).then((colors) => {
+      // Process the extracted colors here
+      //Extracting the colors from colors array of triplets
+      nextEpisodeColor = String(colors[2]);
+      alert(nextEpisodeColor);
+    });
+  };
 
   switch (animeName) {
     case "OnePiece":
@@ -61,16 +68,6 @@ function Anime() {
       ) => {};
       break;
   }
-
-  // Once the image is loaded, extract the prominent colors
-  imageElement.onload = () => {
-    prominent(imageElement).then((colors) => {
-      //Extracting the colors from colors array of triplets
-      const episodeSeasonColor = colors.slice(0, 3);
-      const playColor = colors.slice(3, 6);
-      const nextEpisodeColor = colors.slice(6);
-    });
-  };
 
   const handlePlay = (episodeNumber: number, seasonNumber?: number) => {
     playEpisodeFromInput(episodeNumber, seasonNumber);
