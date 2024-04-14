@@ -7,7 +7,10 @@ import { stringify } from "querystring";
 import { returnDownBack } from "ionicons/icons";
 import { IonIcon } from "@ionic/react";
 import { Link, useLocation } from "react-router-dom";
-
+import { average, prominent } from "color.js";
+import onePunchManLogo from "../banners/one-punch-man.jpg";
+import onePieceLogo from "../banners/one-piece.png";
+import attackOnTitanLogo from "../banners/attack-on-titan.jpg";
 // interface Props {
 //   animeName: string;
 // }
@@ -34,16 +37,21 @@ function Anime() {
     seasonNumber?: number
   ) => void;
 
+  const imageElement = new Image();
+
   switch (animeName) {
     case "OnePiece":
       playEpisodeFromInput = OnePiece.playEpisodeFromInput;
+      imageElement.src = onePieceLogo;
       break;
     case "AttackOnTitan":
       playEpisodeFromInput = AttackOnTitan.playEpisodeFromInput;
       seasonal = true;
+      imageElement.src = attackOnTitanLogo;
       break;
     case "OnePunchMan":
       playEpisodeFromInput = OnePunchMan.playEpisodeFromInput;
+      imageElement.src = onePunchManLogo;
       seasonal = true;
       break;
     default:
@@ -53,6 +61,14 @@ function Anime() {
       ) => {};
       break;
   }
+
+  // Once the image is loaded, extract the prominent colors
+  imageElement.onload = () => {
+    prominent(imageElement).then((colors) => {
+      // Process the extracted colors here
+      return colors;
+    });
+  };
 
   const handlePlay = (episodeNumber: number, seasonNumber?: number) => {
     playEpisodeFromInput(episodeNumber, seasonNumber);
