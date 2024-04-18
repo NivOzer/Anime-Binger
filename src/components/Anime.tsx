@@ -34,6 +34,22 @@ function Anime() {
     seasonNumber?: number
   ) => void;
 
+  //Cookies -
+  // Function to save the last watched episode for a show to localStorage
+  const saveLastWatchedEpisode = (
+    animeName: string,
+    episodeNumber: number,
+    seasonNumber: number
+  ) => {
+    const data = JSON.stringify({ episodeNumber, seasonNumber });
+    localStorage.setItem(animeName, data);
+  };
+  // Function to load the last watched episode for a show from localStorage
+  const loadLastWatchedEpisode = (animeName: string) => {
+    const data = localStorage.getItem(animeName);
+    return data ? JSON.parse(data) : null;
+  };
+
   const [episodeNumberColor, setEpisodeNumberColor] = React.useState("");
   const [playEpisodeColor, setPlayEpisodeColor] = React.useState("");
   const [nextEpisodeColor, setNextEpisodeColor] = React.useState("");
