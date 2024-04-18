@@ -17,4 +17,4 @@ Anime Binger: A Chrome extension bringing popular anime shows to your browser wi
 5. Toggle 'Developer mode.'
    Add the build folder as an extension."
 
-<img src="./public/icons/headIcon16.png" style="display: inline;"/> Watch your favorite shows in hebrew
+<img src="./public/icons/headIcon16.png" style="display: inline;"/> Have fun :)
