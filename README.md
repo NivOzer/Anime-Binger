@@ -1,9 +1,9 @@
 <img src="./src/images/ReadmeCover.png"/>
 
-<span style="display: inline-block;">
+<div style="display: inline-block;">
 
 # Anime Binger
 
-<img src="./public/icons/headIcon16.png" style="display: inline;"/>
+<img src="./public/icons/headIcon16.png" style="display: inline-block;"/>
 
-</span>
+</div>
