@@ -1,8 +1,8 @@
-<img src="./src/images/ReadmeCover.png"/>
+<img width="1000" src="./src/images/ReadmeCover.png" />
 
 # Anime Binger
 
-<img src="./public/icons/headIcon48.png" style="display: inline;"/>
+<img src="./public/icons/headIcon48.png"  style="display: inline;" />
 
 ## <ins>Overview<ins>
 
