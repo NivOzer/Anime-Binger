@@ -56,7 +56,7 @@ function Anime() {
   useEffect(() => {
     setLastEpisodeWatched(getCookie(`${animeName}_episode`));
     setLastSeasonWatched(getCookie(`${animeName}_season`));
-  });
+  }, []);
 
   //Cookies
   const saveLastWatchedEpisode = (
@@ -142,6 +142,8 @@ function Anime() {
   const handlePlay = (episodeNumber: number, seasonNumber?: number) => {
     if (animeName) {
       saveLastWatchedEpisode(animeName, episodeNumber, seasonNumber || 0); // Use 0 as default if seasonNumber is undefined
+      setLastEpisodeWatched(getCookie(`${animeName}_episode`));
+      setLastSeasonWatched(getCookie(`${animeName}_season`));
       playEpisodeFromInput(episodeNumber, seasonNumber);
     } else alert("something is wrong");
   };
