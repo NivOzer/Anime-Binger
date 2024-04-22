@@ -11,14 +11,20 @@ import { average, prominent } from "color.js";
 import onePunchManLogo from "../banners/one-punch-man.jpg";
 import onePieceLogo from "../banners/one-piece.png";
 import attackOnTitanLogo from "../banners/attack-on-titan.jpg";
-
+import { setCookie, getCookie } from "../cookieUtils";
 function Anime() {
   const locationData = useLocation();
   const animeName = new URLSearchParams(locationData.search).get("animeName");
   const formattedAnimeName = animeName?.replace(/([A-Z])/g, " $1").trim();
 
-  const [episodeNumber, setEpisodeNumber] = React.useState("");
-  const [seasonNumber, setSeasonNumber] = React.useState("");
+  const [episodeNumber, setEpisodeNumber] = React.useState(() => {
+    const storedEpisodeNumber = getCookie(`${animeName}_episode`);
+    return storedEpisodeNumber ? storedEpisodeNumber : "";
+  });
+  const [seasonNumber, setSeasonNumber] = React.useState(() => {
+    const storedSeasonNumber = getCookie(`${animeName}_season`);
+    return storedSeasonNumber ? storedSeasonNumber : "";
+  });
 
   let seasonal: boolean = false;
 
@@ -34,22 +40,6 @@ function Anime() {
     seasonNumber?: number
   ) => void;
 
-  //Cookies -
-  // Function to save the last watched episode for a show to localStorage
-  const saveLastWatchedEpisode = (
-    animeName: string,
-    episodeNumber: number,
-    seasonNumber: number
-  ) => {
-    const data = JSON.stringify({ episodeNumber, seasonNumber });
-    localStorage.setItem(animeName, data);
-  };
-  // Function to load the last watched episode for a show from localStorage
-  const loadLastWatchedEpisode = (animeName: string) => {
-    const data = localStorage.getItem(animeName);
-    return data ? JSON.parse(data) : null;
-  };
-
   const [episodeNumberColor, setEpisodeNumberColor] = React.useState("");
   const [playEpisodeColor, setPlayEpisodeColor] = React.useState("");
   const [nextEpisodeColor, setNextEpisodeColor] = React.useState("");
@@ -59,6 +49,24 @@ function Anime() {
     React.useState("white");
   const [nextEpisodeButtonColor, setNextEpisodeButtonColor] =
     React.useState("white");
+
+  //Cookies
+  const saveLastWatchedEpisode = (
+    animeName: string,
+    episodeNumber: number,
+    seasonNumber: number
+  ) => {
+    setCookie(animeName + "_episode", episodeNumber);
+    setCookie(animeName + "_season", seasonNumber);
+  };
+  const loadLastWatchedEpisode = (animeName: string) => {
+    const episodeNumber = getCookie(animeName + "_episode");
+    const seasonNumber = getCookie(animeName + "_season");
+    if (episodeNumber && seasonNumber) {
+      return { episodeNumber, seasonNumber };
+    }
+    return null;
+  };
 
   const imageElement = new Image();
   // Once the image is loaded, extract the prominent colors
@@ -201,7 +209,7 @@ function Anime() {
         </p>
         <p>
           Last Season Watched:&nbsp;
-          <span>{episodeNumber}</span>
+          <span>{seasonNumber}</span>
         </p>
       </div>
       <Link to="/" style={{ color: "black" }}>
