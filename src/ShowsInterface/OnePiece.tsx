@@ -57,10 +57,13 @@ export function playEpisodeFromInput(
   episodeNumber: number,
   seasonNumber?: number
 ) {
+  if (episodeNumber < 1 || episodeNumber > 4000) {
+    alert("Invalid season or episode number!");
+    return;
+  }
   // Check if the input value is a valid number
   if (!isNaN(episodeNumber) && episodeNumber > 0) {
     // Call the playEpisode function with the episode number
-
     const x = fillerChecker(episodeNumber);
     playEpisode(x);
   }
