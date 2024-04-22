@@ -12,5 +12,9 @@
         "32": "/icons/headIcon32.png",
         "48": "/icons/headIcon48.png",
         "128": "/icons/headIcon128.png"
-      }
+      },
+      "permissions": [
+        "cookies",
+        "storage"
+      ],
 }
