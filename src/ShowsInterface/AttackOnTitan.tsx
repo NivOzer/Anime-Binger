@@ -101,6 +101,7 @@ export function playEpisodeFromInput(
       episodeNumber < 1 ||
       episodeNumber > seasons[seasonNumber - 1].length
     ) {
+      alert("Invalid season or episode number!");
       return;
     }
 
@@ -108,7 +109,5 @@ export function playEpisodeFromInput(
     const episodeUrl = seasons[seasonNumber - 1][episodeNumber - 1];
     // Open the selected episode URL in a new tab
     window.open(episodeUrl);
-  } else {
-    throw "Season number is undefined";
   }
 }
