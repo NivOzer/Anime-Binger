@@ -50,6 +50,14 @@ function Anime() {
   const [nextEpisodeButtonColor, setNextEpisodeButtonColor] =
     React.useState("white");
 
+  const [lastEpisodeWatched, setLastEpisodeWatched] = React.useState("");
+  const [lastSeasonWatched, setLastSeasonWatched] = React.useState("");
+
+  useEffect(() => {
+    setLastEpisodeWatched(getCookie(`${animeName}_episode`));
+    setLastSeasonWatched(getCookie(`${animeName}_season`));
+  });
+
   //Cookies
   const saveLastWatchedEpisode = (
     animeName: string,
@@ -132,7 +140,10 @@ function Anime() {
   }
 
   const handlePlay = (episodeNumber: number, seasonNumber?: number) => {
-    playEpisodeFromInput(episodeNumber, seasonNumber);
+    if (animeName) {
+      saveLastWatchedEpisode(animeName, episodeNumber, seasonNumber || 0); // Use 0 as default if seasonNumber is undefined
+      playEpisodeFromInput(episodeNumber, seasonNumber);
+    } else alert("something is wrong");
   };
 
   return (
@@ -205,11 +216,11 @@ function Anime() {
       <div className="cookiesData">
         <p>
           Last Episode Watched:&nbsp;
-          <span>{episodeNumber}</span>
+          <span>{lastEpisodeWatched}</span>
         </p>
         <p>
           Last Season Watched:&nbsp;
-          <span>{seasonNumber}</span>
+          <span>{lastSeasonWatched}</span>
         </p>
       </div>
       <Link to="/" style={{ color: "black" }}>
