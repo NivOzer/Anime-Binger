@@ -194,10 +194,16 @@ function Anime() {
           </button>
         </div>
       </div>
-      <p>
-        Last Episode Watched:&nbsp;
-        <span className="lastWatched">{episodeNumber}</span>
-      </p>
+      <div className="cookiesData">
+        <p>
+          Last Episode Watched:&nbsp;
+          <span>{episodeNumber}</span>
+        </p>
+        <p>
+          Last Season Watched:&nbsp;
+          <span>{episodeNumber}</span>
+        </p>
+      </div>
       <Link to="/" style={{ color: "black" }}>
         <IonIcon
           className="backButton"
