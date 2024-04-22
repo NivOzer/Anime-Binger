@@ -93,15 +93,24 @@ function Anime() {
 
   useEffect(() => {
     const color2 = calculateBrightness(nextEpisodeColor);
-    if (color2 !== undefined && color2 > 128) {
-      setNextEpisodeButtonColor("black");
-    }
     const color1 = calculateBrightness(playEpisodeColor);
-    if (color1 !== undefined && color1 > 128) {
+    const color0 = calculateBrightness(episodeNumberColor);
+    //episode number button color
+    if (color2 !== undefined && color2 > 128) {
+      setEpisodeNumberButtonColor("white");
+    } else {
       setNextEpisodeButtonColor("black");
     }
-    const color0 = calculateBrightness(episodeNumberColor);
+    //playButton number button color
+    if (color1 !== undefined && color1 > 128) {
+      setPlayEpisodeButtonColor("white");
+    } else {
+      setNextEpisodeButtonColor("black");
+    }
+    //nextEpisode number button color
     if (color0 !== undefined && color0 > 128) {
+      setNextEpisodeButtonColor("white");
+    } else {
       setNextEpisodeButtonColor("black");
     }
   }, [nextEpisodeColor, playEpisodeColor, episodeNumberColor]);
@@ -112,6 +121,7 @@ function Anime() {
       const rgbValues = matchResult.map(Number); // Extract RGB values as numbers
       const brightness =
         0.2126 * rgbValues[0] + 0.7152 * rgbValues[1] + 0.0722 * rgbValues[2]; // Calculate brightness
+
       return brightness;
     }
   }
