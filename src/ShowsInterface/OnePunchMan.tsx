@@ -35,6 +35,7 @@ export function playEpisodeFromInput(
       // Get the URL of the selected episode
     ) {
       alert("Invalid season or episode number!");
+      throw "Invalid";
       return;
     }
     // Get the URL of the selected episode
